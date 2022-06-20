@@ -2,6 +2,7 @@ import { Form, FormikProvider, useFormik } from "formik";
 import { IRegister } from "./types";
 import { RegisterSchema } from "./validation";
 import classNames from "classnames";
+import CropperDialog from "../../common/CropperDialog";
 
 const RegisterPage = () => {
 
@@ -34,6 +35,9 @@ const RegisterPage = () => {
           <h1 className="text-center">Реєстрація</h1>
           <FormikProvider value={formik}>
             <Form onSubmit={handleSubmit}>
+
+              <CropperDialog/>
+
               <div className="mb-3">
                 <label htmlFor="email" className="form-label">
                   Електронна адреса
