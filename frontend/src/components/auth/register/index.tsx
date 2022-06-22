@@ -27,7 +27,7 @@ const RegisterPage = () => {
         onSubmit: onHandleSubmit
     });
 
-    const { errors, touched, handleSubmit, handleChange } = formik;
+    const { errors, touched, handleSubmit, handleChange, setFieldValue } = formik;
 
     return (
       <div className="row">
@@ -36,7 +36,13 @@ const RegisterPage = () => {
           <FormikProvider value={formik}>
             <Form onSubmit={handleSubmit}>
 
-              <CropperDialog/>
+              <CropperDialog
+                onChange={setFieldValue}
+                field="photo"
+                error={errors.photo}
+                touched={touched.photo}
+                aspectRation={1/1}
+                />
 
               <div className="mb-3">
                 <label htmlFor="email" className="form-label">

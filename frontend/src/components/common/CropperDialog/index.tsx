@@ -3,9 +3,18 @@ import React, { useState, useRef, LegacyRef, useEffect } from "react";
 import Cropper from "cropperjs";
 import "./style.css";
 import "cropperjs/dist/cropper.css";
+import { ICropperDialog } from "./types";
 
-const CropperDialog: React.FC = () => {
+const CropperDialog: React.FC<ICropperDialog> = ({
+  onChange,
+  field,
+  error,
+  touched,
+  value,
+ aspectRation=1/1
+}) => {
   const [show, setShow] = useState<boolean>(false);
+  const [currentImage, setCurrentImage] = useState<string>("https://thumbs.dreamstime.com/b/happy-cute-little-kid-girl-choose-clothes-174609315.jpg");
 
   const [image, setImage] = useState<string>("");
   const [cropperObj, setCropperObj] = useState<Cropper>();
@@ -40,12 +49,19 @@ const CropperDialog: React.FC = () => {
     setShow((prev) => !prev);
   };
 
+  const handleSelectImage = () => {
+    const base64 = cropperObj?.getCroppedCanvas().toDataURL() as string;
+    onChange(field, base64);
+    setCurrentImage(base64);
+    toggleModal();
+  }
+
   return (
     <>
       <label htmlFor="image">
         <img
           style={{ cursor: "pointer" }}
-          src="https://thumbs.dreamstime.com/b/happy-cute-little-kid-girl-choose-clothes-174609315.jpg"
+          src={currentImage}
           width="150"
           alt="Оберіть фото"
         />
@@ -56,6 +72,12 @@ const CropperDialog: React.FC = () => {
         id="image"
         onChange={handleImageSelect}
       />
+
+      {error && (
+        <div className="alert alert-danger" role="alert">
+          {error}
+        </div>
+      )}
 
       <div className={classNames("modal fade show", { "custom-modal": show })}>
         <div className="modal-dialog modal-lg">
@@ -107,10 +129,10 @@ const CropperDialog: React.FC = () => {
                 data-bs-dismiss="modal"
                 onClick={toggleModal}
               >
-                Close
+                Скасувати
               </button>
-              <button type="button" className="btn btn-primary">
-                Save changes
+              <button type="button" onClick={handleSelectImage} className="btn btn-primary">
+                Обрати фото
               </button>
             </div>
           </div>
