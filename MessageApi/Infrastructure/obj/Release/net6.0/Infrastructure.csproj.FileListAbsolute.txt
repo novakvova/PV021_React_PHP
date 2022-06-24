@@ -1,0 +1,17 @@
+D:\Study\2022\27. PHP\Lesson 2. Begin React and Backend\Project\MessageApi\Infrastructure\bin\Release\net6.0\Infrastructure.deps.json
+D:\Study\2022\27. PHP\Lesson 2. Begin React and Backend\Project\MessageApi\Infrastructure\bin\Release\net6.0\Infrastructure.runtimeconfig.json
+D:\Study\2022\27. PHP\Lesson 2. Begin React and Backend\Project\MessageApi\Infrastructure\bin\Release\net6.0\Infrastructure.dll
+D:\Study\2022\27. PHP\Lesson 2. Begin React and Backend\Project\MessageApi\Infrastructure\bin\Release\net6.0\Infrastructure.pdb
+D:\Study\2022\27. PHP\Lesson 2. Begin React and Backend\Project\MessageApi\Infrastructure\bin\Release\net6.0\Entities.dll
+D:\Study\2022\27. PHP\Lesson 2. Begin React and Backend\Project\MessageApi\Infrastructure\bin\Release\net6.0\Entities.pdb
+D:\Study\2022\27. PHP\Lesson 2. Begin React and Backend\Project\MessageApi\Infrastructure\obj\Release\net6.0\Infrastructure.csproj.AssemblyReference.cache
+D:\Study\2022\27. PHP\Lesson 2. Begin React and Backend\Project\MessageApi\Infrastructure\obj\Release\net6.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Study\2022\27. PHP\Lesson 2. Begin React and Backend\Project\MessageApi\Infrastructure\obj\Release\net6.0\Infrastructure.AssemblyInfoInputs.cache
+D:\Study\2022\27. PHP\Lesson 2. Begin React and Backend\Project\MessageApi\Infrastructure\obj\Release\net6.0\Infrastructure.AssemblyInfo.cs
+D:\Study\2022\27. PHP\Lesson 2. Begin React and Backend\Project\MessageApi\Infrastructure\obj\Release\net6.0\Infrastructure.csproj.CoreCompileInputs.cache
+D:\Study\2022\27. PHP\Lesson 2. Begin React and Backend\Project\MessageApi\Infrastructure\obj\Release\net6.0\Infrastructure.csproj.CopyComplete
+D:\Study\2022\27. PHP\Lesson 2. Begin React and Backend\Project\MessageApi\Infrastructure\obj\Release\net6.0\Infrastructure.dll
+D:\Study\2022\27. PHP\Lesson 2. Begin React and Backend\Project\MessageApi\Infrastructure\obj\Release\net6.0\refint\Infrastructure.dll
+D:\Study\2022\27. PHP\Lesson 2. Begin React and Backend\Project\MessageApi\Infrastructure\obj\Release\net6.0\Infrastructure.pdb
+D:\Study\2022\27. PHP\Lesson 2. Begin React and Backend\Project\MessageApi\Infrastructure\obj\Release\net6.0\Infrastructure.genruntimeconfig.cache
+D:\Study\2022\27. PHP\Lesson 2. Begin React and Backend\Project\MessageApi\Infrastructure\obj\Release\net6.0\ref\Infrastructure.dll
