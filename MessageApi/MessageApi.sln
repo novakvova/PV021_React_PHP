@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageApi", "MessageApi\MessageApi.csproj", "{935AFDB6-9947-411D-8203-F7EFED166FFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageApi", "MessageApi\MessageApi.csproj", "{935AFDB6-9947-411D-8203-F7EFED166FFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{8E6DE220-064B-483D-BB71-4683BA7668CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{8E6DE220-064B-483D-BB71-4683BA7668CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{9F7FD1B9-E34D-4D1E-8654-D841749CEFBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{9F7FD1B9-E34D-4D1E-8654-D841749CEFBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{ECBF7E5E-14B8-424F-A3E4-AEFD589A3B26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{9F7FD1B9-E34D-4D1E-8654-D841749CEFBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F7FD1B9-E34D-4D1E-8654-D841749CEFBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F7FD1B9-E34D-4D1E-8654-D841749CEFBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECBF7E5E-14B8-424F-A3E4-AEFD589A3B26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECBF7E5E-14B8-424F-A3E4-AEFD589A3B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECBF7E5E-14B8-424F-A3E4-AEFD589A3B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECBF7E5E-14B8-424F-A3E4-AEFD589A3B26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
