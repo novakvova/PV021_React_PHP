@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Core.DTO.Account;
 using Core.Helpers;
+using Core.Interfaces;
 using Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -16,8 +17,10 @@ namespace MessageApi.Controllers
         private readonly IMapper _mapper;
         private readonly IWebHostEnvironment _env;
         private readonly IConfiguration _configuration;
+        private readonly IRecaptchaService _recaptchaService;
         public AccountController(UserManager<ApplicationUser> userManager,
-            IMapper mapper, 
+            IMapper mapper,
+            IRecaptchaService recaptchaService,
             IWebHostEnvironment env,
             IConfiguration configuration)
         {
@@ -25,12 +28,17 @@ namespace MessageApi.Controllers
             _mapper = mapper;
             _env = env;
             _configuration = configuration;
+            _recaptchaService = recaptchaService;
         }
         [HttpPost]
         public IActionResult Register([FromBody]RegisterUserDTO register)
         {
             var user = _mapper.Map<ApplicationUser>(register);
-            try
+            if (!_recaptchaService.IsValid(register.RecaptchaToken))
+            {
+                return BadRequest(new { error = "Recaptcha not valid" });
+            }
+                try
             {
                     if (register.Photo != null)
                     {

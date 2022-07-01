@@ -11,8 +11,8 @@ const  App = () => {
     <Routes>
       <Route path="/" element={<HomeLayout/>}>
         <Route index element={<HomePage />} />
-        <Route path="login" element={<LoginPage />} />
-        <Route path="register" element={<RegisterPage />} />
+        <Route path="login.php" element={<LoginPage />} />
+        <Route path="register.php" element={<RegisterPage />} />
         {/* <Route path="*" element={<NoMatch />} /> */}
       </Route>
     </Routes>

@@ -15,18 +15,18 @@ namespace Core.Validators
             RuleFor(x => x.Email)
                .NotEmpty().WithMessage("Поле пошта є обов'язковим!")
                .EmailAddress().WithMessage("Пошта є не коректною!");
-            RuleFor(x => x.Password)
-                .NotEmpty()
-                    .WithName("Password")
-                    .WithMessage("Поле пароль є обов'язковим!")
-                .MinimumLength(5)
-                    .WithName("Password")
-                    .WithMessage("Поле пароль має містити міннімум 5 символів!");
-            RuleFor(x => x.ConfirmPassword)
-                .NotEmpty()
-                    .WithName("ConfirmPassword")
-                    .WithMessage("Поле є обов'язковим!")
-                .Equal(x => x.Password).WithMessage("Поролі не співпадають!");
+            //RuleFor(x => x.Password)
+            //    .NotEmpty()
+            //        .WithName("Password")
+            //        .WithMessage("Поле пароль є обов'язковим!")
+            //    .MinimumLength(5)
+            //        .WithName("Password")
+            //        .WithMessage("Поле пароль має містити міннімум 5 символів!");
+            //RuleFor(x => x.ConfirmPassword)
+            //    .NotEmpty()
+            //        .WithName("ConfirmPassword")
+            //        .WithMessage("Поле є обов'язковим!")
+            //    .Equal(x => x.Password).WithMessage("Поролі не співпадають!");
         }
     }
 }
