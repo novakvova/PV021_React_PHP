@@ -23,6 +23,11 @@ const CropperDialog: React.FC<ICropperDialog> = ({
 
 
   useEffect(() => {
+    let tempValue:any|null = {key:"key",value:"value"};
+    console.log("a:",tempValue.key);
+    tempValue=null;
+    console.log("a:",tempValue?.key);
+
     if(imgRef.current)
     {
         const cropper = new Cropper(imgRef.current as HTMLImageElement, {
