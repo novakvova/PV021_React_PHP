@@ -74,6 +74,7 @@ const CropperDialog: React.FC<ICropperDialog> = ({
       <input
         type="file"
         className="d-none"
+        accept="image/*"
         id="image"
         onChange={handleImageSelect}
       />
