@@ -1,4 +1,6 @@
-﻿using Entities;
+﻿using Core.DTO.Account;
+using Entities;
+using Google.Apis.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +13,6 @@ namespace Core.Interfaces
     {
         //IEnumerable<Claim> SetClaims(Author author, string userRole);
         string CreateToken(ApplicationUser user);
-        //string CreateRefreshToken();
-        //IEnumerable<Claim> GetClaimsFromExpiredToken(string token);
-        // ===== Need Add Posibility For Authentication using Google Auth
-        // Task<GoogleJsonWebSignature.Payload> VerifyGoogleToken(UserExternalAuthDTO authDTO);
+        Task<GoogleJsonWebSignature.Payload> VerifyGoogleToken(ExternalLoginDTO request);
     }
 }

@@ -1,6 +1,7 @@
 import GoogleLogin, { GoogleLoginResponse, GoogleLoginResponseOffline } from 'react-google-login';
 import { gapi } from 'gapi-script';
 import { useEffect } from 'react';
+import http from '../../../http_common';
 
 const LoginPage = () => {
     useEffect(()=> {
@@ -14,8 +15,16 @@ const LoginPage = () => {
         gapi.load('client:auth2', start);
     }, []);
 
-    const responseGoogle=(response: GoogleLoginResponse | GoogleLoginResponseOffline) =>{
-        console.log("Google response", response);
+    const responseGoogle=(response: GoogleLoginResponse | GoogleLoginResponseOffline) => {
+      const model = {
+        provider: "Google",
+        token: (response as GoogleLoginResponse).tokenId
+      };
+        http.post("api/account/GoogleExternalLogin", model)
+          .then(x=>{
+            console.log("user jwt token", x);
+          });
+      //console.log("Google response", response);
     }
 
     return (

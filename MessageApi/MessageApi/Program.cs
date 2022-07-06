@@ -10,6 +10,7 @@ using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 using Core.Interfaces;
 using Core.Services;
+using Core.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,7 +42,10 @@ builder.Services.AddControllers()
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("JwtOptions"));
+builder.Services.Configure<GoogleAuthSettings>(builder.Configuration.GetSection("GoogleAuthSettings"));
 builder.Services.AddScoped<IRecaptchaService, RecaptchaService>();
+builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddCors();
 
 var app = builder.Build();

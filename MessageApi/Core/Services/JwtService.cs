@@ -1,6 +1,8 @@
-﻿using Core.Helpers;
+﻿using Core.DTO.Account;
+using Core.Helpers;
 using Core.Interfaces;
 using Entities;
+using Google.Apis.Auth;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -17,11 +19,14 @@ namespace Core.Services
     public class JwtService : IJwtService
     {
         private readonly IOptions<JwtOptions> _jwtOptions;
+        private readonly IOptions<GoogleAuthSettings> _googleAuthSettings;
         private readonly UserManager<ApplicationUser> _userManager;
         public JwtService(IOptions<JwtOptions> jwtOptions, 
+            IOptions<GoogleAuthSettings> googleAuthSettings,
             UserManager<ApplicationUser> userManager)
         {
             _jwtOptions = jwtOptions;
+            _googleAuthSettings = googleAuthSettings;
             _userManager = userManager;
         }
         public string CreateToken(ApplicationUser user)
@@ -47,6 +52,17 @@ namespace Core.Services
                 claims: claims
             );
             return new JwtSecurityTokenHandler().WriteToken(jwt);
+        }
+
+        public async Task<GoogleJsonWebSignature.Payload> VerifyGoogleToken(ExternalLoginDTO request)
+        {
+            var settings = new GoogleJsonWebSignature.ValidationSettings()
+            {
+                Audience = new List<string>() { _googleAuthSettings.Value.ClientId }
+            };
+
+            var payload = await GoogleJsonWebSignature.ValidateAsync(request.Token, settings);
+            return payload;
         }
     }
 }
