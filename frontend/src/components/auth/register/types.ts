@@ -1,3 +1,4 @@
+import { AuthActionTypes } from "../store/types"
 
 export interface IRegister {
     firstName: string,
@@ -7,4 +8,13 @@ export interface IRegister {
     phone: string,
     password: string,
     confirmPassword: string
+}
+
+export interface IRegisterRequest extends IRegister {
+    RecaptchaToken: string
+}
+
+export interface RegisterSuccessAction {
+    type: AuthActionTypes.REGISTER_SUCCESS,
+    payload: string
 }

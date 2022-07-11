@@ -1,5 +1,6 @@
 export enum AuthActionTypes {
-    LOGIN_AUTH = "LOGIN_AUTH"
+    LOGIN_AUTH = "AUTH/LOGIN_AUTH",
+    REGISTER_SUCCESS = "AUTH/REGISTER_SUCCESS"
 }
 
 export interface IUser {

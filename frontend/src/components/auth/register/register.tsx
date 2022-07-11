@@ -1,20 +1,19 @@
 import { Form, FormikProvider, useFormik } from "formik";
-import { IRegister } from "./types";
+import { IRegister, IRegisterRequest } from "./types";
 import { RegisterSchema } from "./validation";
 import classNames from "classnames";
 import CropperDialog from "../../common/CropperDialog";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { useState } from "react";
-import axios from "axios";
-import { useDispatch } from "react-redux";
-import { AuthActionTypes } from "../store/types";
+import { useActions } from "../../../hooks/useActions";
+import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
 
     const { executeRecaptcha } = useGoogleReCaptcha();
     const [bot, setBot] = useState<boolean>(false);
-
-    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const { RegisterUser } = useActions();
 
     const initialValues: IRegister = {
         firstName: "",
@@ -35,17 +34,15 @@ const RegisterPage = () => {
             return;
           }
           const recaptchaToken = await executeRecaptcha();
-          const model = {...values, RecaptchaToken: recaptchaToken};
-          console.log("send model", model);
-          dispatch({
-            type: AuthActionTypes.LOGIN_AUTH,
-            payload: {
-              email: values.email,
-              image: values.photo,
-              roles: "Кабан"
-            }
-          });
-          const result =  await axios.post("http://localhost:5054/api/account", model);
+          const model : IRegisterRequest = {
+            ...values, 
+            RecaptchaToken: recaptchaToken
+          };
+          console.log("sfdsdfsdfsdf--------", model);
+          await RegisterUser(model);
+          //await dispatch(RegisterUser(model));
+          navigate('/');
+          
         } catch (error) {
           console.error("propblem submit", error);
         }
