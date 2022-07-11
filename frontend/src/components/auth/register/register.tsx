@@ -6,11 +6,15 @@ import CropperDialog from "../../common/CropperDialog";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { AuthActionTypes } from "../store/types";
 
 const RegisterPage = () => {
 
     const { executeRecaptcha } = useGoogleReCaptcha();
     const [bot, setBot] = useState<boolean>(false);
+
+    const dispatch = useDispatch();
 
     const initialValues: IRegister = {
         firstName: "",
@@ -33,6 +37,14 @@ const RegisterPage = () => {
           const recaptchaToken = await executeRecaptcha();
           const model = {...values, RecaptchaToken: recaptchaToken};
           console.log("send model", model);
+          dispatch({
+            type: AuthActionTypes.LOGIN_AUTH,
+            payload: {
+              email: values.email,
+              image: values.photo,
+              roles: "Кабан"
+            }
+          });
           const result =  await axios.post("http://localhost:5054/api/account", model);
         } catch (error) {
           console.error("propblem submit", error);

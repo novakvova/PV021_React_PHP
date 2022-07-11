@@ -1,6 +1,7 @@
 
 import RegisterPage from "./register";
 
+
 const Register =() =>{
   return (
     <>
